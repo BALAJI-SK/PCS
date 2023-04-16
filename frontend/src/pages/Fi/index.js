@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import {useNavigate} from "react-router-dom"
 import { useCookies } from 'react-cookie';
 import { Flex, Box, Card, Heading, Form, Text, Button, Loader } from 'rimble-ui';
 
@@ -11,7 +11,7 @@ import { setUserData } from '../../functions/setUserData';
 
 const Fi = () => {
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies();
 
     const [approvedClientList, setApprovedClientList] = useState([]);
@@ -111,7 +111,7 @@ const Fi = () => {
     const handleClickNewClient = e => {
         e.preventDefault();
         setIsLoading(true);
-        history.push('/fi/newClient');
+        navigate('/fi/newClient');
     };
 
     function handleClickLogout() {
@@ -119,7 +119,7 @@ const Fi = () => {
         removeCookie('ledgerId');
         removeCookie('whoRegistered');
         removeCookie('orgCredentials');
-        history.push('/login');
+        navigate('/login');
     }
 
     return (

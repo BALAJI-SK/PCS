@@ -1,16 +1,16 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import { Flex, Box, Card, Heading, Form, Field, Radio, Button, Loader, Image } from 'rimble-ui';
+import { Flex, Box, Card, Heading, Form, Field, Radio, Button, Loader } from 'rimble-ui'
 
 import qs from 'qs';
 
-import logo from '../../assets/eKYC.svg';
+
 import api from '../../service/api';
 
 const Login = () => {
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies();
 
     const [validated, setValidated] = useState(false);
@@ -71,7 +71,7 @@ const Login = () => {
                             res.data.ledgerId && setCookie('ledgerId', res.data.ledgerId);
                             res.data.whoRegistered && setCookie('whoRegistered', res.data.whoRegistered);
                             res.data.orgCredentials && setCookie('orgCredentials', res.data.orgCredentials);
-                            history.push(`/${userType}`);
+                            navigate(`/${userType}`);
 
                         } else {
                             console.log('Oopps... something wrong, status code ' + res.status);
@@ -93,7 +93,7 @@ const Login = () => {
                 return function cleanup() { }
             }
         }
-    }, [login, password, userType, validated, isLoading, history, setCookie]);
+    }, [login, password, userType, validated, isLoading, navigate, setCookie]);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -104,13 +104,8 @@ const Login = () => {
         <Flex height={'100vh'}>
             <Box mx={'auto'} my={'auto'} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
                 <Card>
-                    <Image
-                        alt="eKYC logo"
-                        height="130"
-                        width={1}
-                        src={logo}
-                    />
-                    <Heading as={'h1'} mt={1} mb={3} textAlign={'center'} color={'primary'}>eKYC</Heading>
+                    
+                    <Heading as={'h1'} mt={1} mb={3} textAlign={'center'} color={'primary'}>PCS</Heading>
                     <Form onSubmit={handleSubmit}>
                         <Flex mx={-3} flexWrap={"wrap"}>
                             <Box width={1} px={3}>

@@ -1,0 +1,6 @@
+<Image
+                        alt="eKYC logo"
+                        height="130"
+                        width={1}
+                        src={logo}
+                    />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {  Route, Routes } from 'react-router-dom';
 
 import { theme } from "rimble-ui";
 import { ThemeProvider } from "styled-components";
@@ -18,16 +18,15 @@ customTheme.colors.primary = "#0358d9ff";
 function App() {
   return (
     <ThemeProvider theme={customTheme}>
-      <BrowserRouter>
-        <Switch>
-          <Route path='/' exact component={Login} />
-          <Route path='/index' exact component={Login} />
-          <Route path='/login' exact component={Login} />
-          <Route path='/client' exact component={Client} />
-          <Route path='/fi' exact component={Fi} />
-          <Route path='/fi/newClient' exact component={NewClient} />
-        </Switch>
-      </BrowserRouter>
+
+        <Routes>
+          <Route path='/*' element={<Login/>} />
+          <Route path='/index' element={<Login/>} />
+          <Route path='/login' element={<Login/>} />
+          <Route path='/client' element={<Client/>} />
+          <Route path='/fi' element={<Fi/>} />
+          <Route path='/fi/newClient' element={<NewClient/>} />
+        </Routes>
     </ThemeProvider>
   );
 }

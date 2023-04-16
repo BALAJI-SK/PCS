@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { Flex, Box, Card, Heading, Text, Form, Field, Button, Loader } from 'rimble-ui';
 
@@ -12,7 +12,7 @@ import { setUserData } from '../../functions/setUserData';
 
 const Client = () => {
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies();
 
     const [clientData, setClientData] = useState([]);
@@ -175,7 +175,7 @@ const Client = () => {
         removeCookie('ledgerId');
         removeCookie('whoRegistered');
         removeCookie('orgCredentials');
-        history.push('/login');
+    navigate('/login');
     }
 
     return (

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Flex, Box, Card, Heading, Text, Form, Field, Button, Loader } from 'rimble-ui';
 
 import qs from 'qs';
@@ -8,7 +8,7 @@ import api from '../../service/api';
 
 const Login = () => {
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [validated, setValidated] = useState(false);
     const [clientData, setClientData] = useState({});
@@ -100,7 +100,7 @@ const Login = () => {
                 return function cleanup() { }
             }
         }
-    }, [clientData, validated, isLoading, history]);
+    }, [clientData, validated, isLoading, navigate]);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -110,7 +110,7 @@ const Login = () => {
 
     const handleClickOnBack = e => {
         e.preventDefault();
-        history.push('/fi');
+        navigate('/fi');
     }
 
     return (

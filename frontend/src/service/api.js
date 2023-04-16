@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { baseURL } from './baseURL.json'
+const baseURL = "http://localhost:5000";
 
 const apiWithCredentials = axios.create({
-    baseURL: baseURL,
+     baseURL,
     withCredentials: true,
     headers: {
         'content-type': 'application/x-www-form-urlencoded'

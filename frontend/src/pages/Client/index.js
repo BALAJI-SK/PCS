@@ -175,7 +175,7 @@ const Client = () => {
         removeCookie('ledgerId');
         removeCookie('whoRegistered');
         removeCookie('orgCredentials');
-    navigate('/login');
+        navigate('/login');
     }
 
     return (

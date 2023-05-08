@@ -32,7 +32,7 @@ async function main() {
         const network = await gateway.getNetwork('mychannel');
 
         // Get the contract from the network.
-        const contract = network.getContract('eKYC');
+        const contract = network.getContract('PCS');
 
         // Submit the specified transaction.
         const result = await contract.submitTransaction('remove', 'CLIENT5', 'FI2');

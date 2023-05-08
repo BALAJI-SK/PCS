@@ -32,7 +32,7 @@ async function main() {
         const network = await gateway.getNetwork('mychannel');
 
         // Get the contract from the network.
-        const contract = network.getContract('eKYC');
+        const contract = network.getContract('PCS');
 
         const fields = ['name', 'address'];
 

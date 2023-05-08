@@ -127,7 +127,7 @@ const Fi = () => {
             <Box mx={'auto'} width={[1, 11 / 12, 10 / 12]}>
                 <Flex px={2} mx={'auto'} justifyContent='space-between'>
                     <Box my={'auto'}>
-                        <Heading as={'h1'} color='primary'>eKYC</Heading>
+                        <Heading as={'h1'} color='primary'>PCS</Heading>
                     </Box>
                     <Box my={'auto'}>
                         <Button mr={2} onClick={handleClickNewClient}>New Client</Button>
@@ -135,7 +135,7 @@ const Fi = () => {
                     </Box>
                 </Flex>
                 <Card>
-                    <Heading as={'h2'}>Financial institution data</Heading>
+                    <Heading as={'h2'}>Financial   Institution data</Heading>
                     <UserData userData={fiData} />
                 </Card>
                 <Card mt={20}>

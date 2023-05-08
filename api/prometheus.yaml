@@ -1,8 +1,13 @@
-global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
 
-scrape_configs:
-  - job_name: integrations/nodejs
-    static_configs:
-      - targets: ['localhost:5000']
+metrics:
+  wal_directory: /tmp/wal
+  global:
+    scrape_interval: 60s
+  configs:
+    - name: integrations
+      scrape_configs:
+        - job_name: integrations/nodejs
+          static_configs:
+            - targets: ['nodejs-app:4001']
+      remote_write:
+        - url: https://collegespace215.grafana.net/alerting/grafanacloud-collegespace215-prom/NodejsDown/find
